@@ -7,7 +7,6 @@
 
 @font-face {
   font-family: GodEaterRegular;
-  letter-spacing: 1px;
   src: url(../media/fonts/GodEaterRegular.ttf);
 }
 
@@ -54,6 +53,7 @@ body {
   font-family: GodEaterRegular, sans-serif;
   font-size: 40px;
   font-weight: bold;
+  letter-spacing: 1px;
   line-height: 40px;
   text-align: center;
 }
@@ -110,3 +110,37 @@ body {
 .menu-element span { margin-top: 5px; }
 
 #menu-about { border-bottom: 1.5px solid black; }
+
+/*---------------------------------------------------------------------[CONTENT-AREA]--*/
+.content-container {
+  height: 100%;
+  width: 100%;
+}
+
+.content-container[status_="active"] {
+  display: block;
+}
+
+.content-container[status_="inactive"] {
+  display: none;
+}
+
+#sets-manager {
+  background-color: darkslateblue;
+}
+
+#weapons-manager {
+  background-color: darkturquoise;
+}
+
+#guns-manager {
+  background-color: darkseagreen;
+}
+
+#shields-manager {
+  background-color: darkorchid
+}
+
+#skills-manager {
+  background-color: darksalmon;
+}
