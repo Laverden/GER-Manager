@@ -10,7 +10,8 @@
   "author": "Laverden",
   "license": "ISC",
   "devDependencies": {
-    "electron": "9.0.5"
+    "electron": "9.0.5",
+    "standard": "^14.3.4"
   },
   "dependencies": {
     "electron-is-dev": "1.2.0",
