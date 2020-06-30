@@ -1,0 +1,65 @@
+:root {
+  --win-height: 800px;
+  --win-width: 600px;
+  --menu-width: 80px;
+  --header-hight: 80px;
+}
+
+@font-face {
+  font-family: GodEaterRegular;
+  letter-spacing: 1px;
+  src: url(../media/fonts/GodEaterRegular.ttf);
+}
+
+html,
+body {
+  height: 100%;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+}
+
+/*-------------------------------------------------------------------------[APP LAYOUT]*/
+#main-container {
+    background-color: dimgray;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: var(--menu-width) auto;
+    grid-template-rows: var(--header-hight) auto;
+    grid-template-areas: 
+      "logo title"
+      "sidemenu content";
+}
+#header-logo {
+  background-color: blue;
+  grid-area: logo;
+}
+
+#header-title {
+  background-color: lightblue;
+  grid-area: title;
+  font-family: GodEaterRegular, sans-serif;
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  align-self: center;
+  font-weight: bold;
+}
+
+#side-menu {
+  background-color: lightcoral;
+  grid-area: sidemenu;
+}
+
+#content-area {
+  background-color: darkgray;
+  grid-area: content;
+}
