@@ -1,0 +1,19 @@
+{
+  "name": "ger-manager",
+  "version": "1.0.0",
+  "description": "God Eater Resurrection Equipment Manager for easily planning equipment sets and skills allocation",
+  "main": "main.js",
+  "scripts": {
+    "start": "SET NODE_ENV=development && electron . --enable-logging",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Laverden",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "9.0.5"
+  },
+  "dependencies": {
+    "electron-is-dev": "1.2.0",
+    "fs": "0.0.1-security"
+  }
+}
