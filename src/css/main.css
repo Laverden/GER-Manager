@@ -22,44 +22,91 @@ body {
 }
 
 body {
-    margin: 0;
-    background-color: white;
+  margin: 0;
+  background-color: white;
 }
 
-/*-------------------------------------------------------------------------[APP LAYOUT]*/
+/*-----------------------------------------------------------------------[APP LAYOUT]--*/
 #main-container {
-    background-color: dimgray;
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: var(--menu-width) auto;
-    grid-template-rows: var(--header-hight) auto;
-    grid-template-areas: 
-      "logo title"
-      "sidemenu content";
+  background-color: dimgray;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: var(--menu-width) auto;
+  grid-template-rows: var(--header-hight) auto;
+  grid-template-areas: 
+    "logo title"
+    "sidemenu content";
 }
+
 #header-logo {
   background-color: blue;
   grid-area: logo;
+  align-items: center;
+  display: flex;
+  padding: 5px;
 }
 
 #header-title {
   background-color: lightblue;
   grid-area: title;
+  align-self: center;
   font-family: GodEaterRegular, sans-serif;
   font-size: 40px;
+  font-weight: bold;
   line-height: 40px;
   text-align: center;
-  align-self: center;
-  font-weight: bold;
 }
 
 #side-menu {
   background-color: lightcoral;
   grid-area: sidemenu;
+  display: flex;
+  flex-direction: column;
 }
 
 #content-area {
   background-color: darkgray;
   grid-area: content;
 }
+
+/*----------------------------------------------------------------------[HEADER-LOGO]--*/
+#header-logo > img {
+  height: auto;
+  width: 100%;
+}
+
+/*------------------------------------------------------------------------[SIDE-MENU]--*/
+
+.menu-element {
+  background-color: lightgoldenrodyellow;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  box-sizing: border-box;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-family: GodEaterRegular;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 14px;
+  height: 85px;
+  opacity: 0.7;
+  padding-top: 5px;
+  width: 100%;
+}
+
+.menu-element:focus { outline: none; }
+.menu-element:hover { opacity: 1; }
+
+.menu-element img {
+  align-self: center;
+  height: 60px;
+  width: 60px;
+}
+
+.menu-element span { margin-top: 5px; }
+
+#menu-about { border-bottom: 1.5px solid black; }
