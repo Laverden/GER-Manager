@@ -3,36 +3,39 @@
 MainApplication.GUI.SideMenu = {};
 
 /**
- * 
+ * Initializes the GUI.SideMenu module.
  */
 MainApplication.GUI.SideMenu.init = function () {
-    this.name = "GUI.SideMenu";
-    this.menuItemSets = document.getElementById("menu-sets");
-    this.menuItemWeapons = document.getElementById("menu-weapons");
-    this.menuItemGuns = document.getElementById("menu-guns");
-    this.menuItemShields = document.getElementById("menu-shields");
-    this.menuItemSkills = document.getElementById("menu-skills");
-    this.menuItemAbout = document.getElementById("menu-about");
+  this.name = 'GUI.SideMenu';
 
-    this.registerClickEvent(this.menuItemSets, this.setsMenuItemClickHandler);
+  const managerKeys = Object.keys(MainApplication.GUI.DOMElements);
+  managerKeys.forEach(managerID => {
+    const menuID = MainApplication.GUI.DOMElements[managerID].menuID;
+    const menuItem = document.getElementById(menuID);
+    menuItem.targetContentPanel = MainApplication.GUI.DOMElements[managerID].contentID;
+    this.registerClickEvent(menuItem, this.menuItemClickHandler);
+  });
 
-    console.log(`Module ${this.name} has been initialized.`);
-}
+  console.log(`[${this.name}] Module ${this.name} has been initialized.`);
+};
 
 /**
- * 
- * @param {Element} domElement 
- * @param {Function} handlerFunction 
+ * DESCRIBE
+ *
+ * @param {Element} domElement
+ * @param {Function} handlerFunction
  */
 MainApplication.GUI.SideMenu.registerClickEvent = function (domElement, handlerFunction) {
-    domElement.addEventListener('click', handlerFunction);
-}
+  domElement.addEventListener('click', handlerFunction);
+};
 
 /**
- * 
- * @param {MouseEvent} event 
+ * DESCRIBE
+ *
+ * @param {MouseEvent} event
  */
-MainApplication.GUI.SideMenu.setsMenuItemClickHandler= function (event) {
-    event.preventDefault();
-    console.log(event);
-}
+MainApplication.GUI.SideMenu.menuItemClickHandler = function (event) {
+  event.preventDefault();
+  MainApplication.GUI.ContentPanel.switchContentArea(event.currentTarget.targetContentPanel);
+  console.log(`[${MainApplication.GUI.SideMenu.name}] Click over element ${event.currentTarget.id}`);
+};

@@ -65,7 +65,7 @@ body {
   flex-direction: column;
 }
 
-#content-area {
+#content-panel {
   background-color: darkgray;
   grid-area: content;
 }
@@ -89,7 +89,7 @@ body {
   justify-content: center;
   text-align: center;
   font-family: GodEaterRegular;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 1px;
   line-height: 14px;
   height: 85px;
@@ -109,7 +109,7 @@ body {
 
 .menu-element span { margin-top: 5px; }
 
-#menu-about { border-bottom: 1.5px solid black; }
+#menu-content-about { border-bottom: 1.5px solid black; }
 
 /*---------------------------------------------------------------------[CONTENT-AREA]--*/
 .content-container {
@@ -125,22 +125,22 @@ body {
   display: none;
 }
 
-#sets-manager {
+#content-sets {
   background-color: darkslateblue;
 }
 
-#weapons-manager {
+#content-weapons {
   background-color: darkturquoise;
 }
 
-#guns-manager {
+#content-guns {
   background-color: darkseagreen;
 }
 
-#shields-manager {
+#content-shields {
   background-color: darkorchid
 }
 
-#skills-manager {
+#content-skills {
   background-color: darksalmon;
 }
