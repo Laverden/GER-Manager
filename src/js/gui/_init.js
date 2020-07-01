@@ -32,7 +32,18 @@ MainApplication.GUI.init = function () {
       contentID: 'content-about'
     }
   };
+  this.managerKeys = Object.keys(this.DOMElements);
 
   MainApplication.GUI.SideMenu.init();
-  MainApplication.GUI.ContentPanel.init();
+  MainApplication.GUI.ContentPanel.init(this.getContentIDs());
+};
+
+MainApplication.GUI.getContentIDs = function () {
+  var contentIDsArray = [];
+
+  this.managerKeys.forEach(key => {
+    contentIDsArray.push(this.DOMElements[key].contentID);
+  });
+
+  return contentIDsArray;
 };

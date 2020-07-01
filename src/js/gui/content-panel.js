@@ -2,21 +2,18 @@
 
 MainApplication.GUI.ContentPanel = {};
 
-
-MainApplication.GUI.ContentPanel.init = function () {
+MainApplication.GUI.ContentPanel.init = function (contentIDsArray) {
   this.name = 'GUI.ContentPanel';
-  this.contentPanelIDs = [
-      "content-sets",
-      "content-weapons",
-      "content-guns",
-      "content-shields",
-      "content-skills",
-      "content-about",
-  ];
+  this.contentPanelIDs = contentIDsArray;
 
   console.log(`[${this.name}] Module ${this.name} has been initialized.`);
 };
 
+/**
+ * DESCRIBE
+ *
+ * @param {String} targetedContentID
+ */
 MainApplication.GUI.ContentPanel.switchContentArea = function (targetedContentID) {
   console.log(`[${this.name}] Targeting ${targetedContentID}.`);
   this.contentPanelIDs.forEach(elementID => {
