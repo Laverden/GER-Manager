@@ -7,4 +7,5 @@ MainApplication.GUI = {};
  */
 MainApplication.GUI.init = function () {
   MainApplication.GUI.Controller.init();
+  MainApplication.GUI.SkillsManager.init();
 };

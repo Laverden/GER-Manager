@@ -4,6 +4,7 @@
   --menu-width: 80px;
   --header-height: 80px;
   --actions-height: 10%;
+  --content-height: calc(var(--win-height) - var(--header-height));
 }
 
 @font-face {
@@ -25,6 +26,11 @@ body {
   margin: 0;
   background-color: white;
 }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #888; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
 
 /*-----------------------------------------------------------------------[APP LAYOUT]--*/
 #main-container {
@@ -159,14 +165,6 @@ body {
   align-items: center;
 }
 
-.manager-content {
-  display: block;
-  width: 100%;
-  height: calc(100% - var(--actions-height));
-  background-color: darkmagenta;
-  opacity: 0.7;
-}
-
 .btn-action {
   margin: 0;
   padding: 5px;
@@ -176,29 +174,75 @@ body {
   cursor: pointer;
 }
 
-#skills-displayer {
+.manager-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100% - var(--actions-height));
+  background-color: darkmagenta;
+  opacity: 0.7;
+}
+
+#skills-displayer-content {
   width: 65%;
-  height: 100%;
+  height: calc(0.8*(var(--content-height)));
   border-right: 2px double black;
+  overflow-y: auto;
+  background-color: lightblue;
+  display: block;
+  box-sizing: border-box;
 }
 
 #ul-skills {
   margin: 0;
-  padding: 5px;
-  columns: 2;
   list-style: none;
   text-align: center;
-  font-family: GodEaterRegular;
+  font-family: fantasy;
   font-size: 14px;
-  height: 100%;
+  padding: 0;
   box-sizing: border-box;
-  width: 95%;
+  margin-left: 10px;
 }
 
 #ul-skills li {
-  height: 30px;
-  border: 1px solid black;
+  height: 32px;
+  border: 1px dotted black;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 5px;
+  float: left;
+  width: 45%;
+  background-color: beige;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#ul-skills li:hover { opacity: 1; }
+
+#skills-information-content {
+  width: calc(35% - 2px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#skills-information-title {
+  width: 100%;
+  height: 30%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: GodEaterRegular;
+  font-size: 20px;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+#skills-information-description {
+  width: 100%;
+  height: 60%;
+  background-color: violet;
 }
