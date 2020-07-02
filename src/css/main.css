@@ -2,7 +2,8 @@
   --win-height: 800px;
   --win-width: 600px;
   --menu-width: 80px;
-  --header-hight: 80px;
+  --header-height: 80px;
+  --actions-height: 10%;
 }
 
 @font-face {
@@ -32,7 +33,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: var(--menu-width) auto;
-  grid-template-rows: var(--header-hight) auto;
+  grid-template-rows: var(--header-height) auto;
   grid-template-areas: 
     "logo title"
     "sidemenu content";
@@ -143,4 +144,61 @@ body {
 
 #content-skills {
   background-color: darksalmon;
+}
+
+.manager-actions {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: var(--actions-height);
+  background-color: crimson;
+  opacity: 0.7;
+  box-sizing: border-box;
+  padding: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.manager-content {
+  display: block;
+  width: 100%;
+  height: calc(100% - var(--actions-height));
+  background-color: darkmagenta;
+  opacity: 0.7;
+}
+
+.btn-action {
+  margin: 0;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+#skills-displayer {
+  width: 65%;
+  height: 100%;
+  border-right: 2px double black;
+}
+
+#ul-skills {
+  margin: 0;
+  padding: 5px;
+  columns: 2;
+  list-style: none;
+  text-align: center;
+  font-family: GodEaterRegular;
+  font-size: 14px;
+  height: 100%;
+  box-sizing: border-box;
+  width: 95%;
+}
+
+#ul-skills li {
+  height: 30px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
