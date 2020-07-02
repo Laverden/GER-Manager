@@ -14,7 +14,7 @@ MainApplication.GUI.ContentPanel.init = function (contentIDsArray) {
  *
  * @param {String} targetedContentID
  */
-MainApplication.GUI.ContentPanel.switchContentArea = function (targetedContentID) {
+MainApplication.GUI.ContentPanel.activateContentArea = function (targetedContentID) {
   console.log(`[${this.name}] Targeting ${targetedContentID}.`);
   this.contentPanelIDs.forEach(elementID => {
     const contentElement = document.getElementById(elementID);

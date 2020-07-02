@@ -5,14 +5,16 @@ MainApplication.GUI.SideMenu = {};
 /**
  * Initializes the GUI.SideMenu module.
  */
-MainApplication.GUI.SideMenu.init = function () {
+MainApplication.GUI.SideMenu.init = function (domElementsDict) {
   this.name = 'GUI.SideMenu';
+  this.DOMElementsData = domElementsDict;
 
-  const managerKeys = Object.keys(MainApplication.GUI.DOMElements);
+  const managerKeys = Object.keys(this.DOMElementsData);
+
   managerKeys.forEach(managerID => {
-    const menuID = MainApplication.GUI.DOMElements[managerID].menuID;
+    const menuID = this.DOMElementsData[managerID].menuID;
     const menuItem = document.getElementById(menuID);
-    menuItem.targetContentPanel = MainApplication.GUI.DOMElements[managerID].contentID;
+    menuItem.targetManagerID = managerID;
     this.registerClickEvent(menuItem, this.menuItemClickHandler);
   });
 
@@ -36,6 +38,7 @@ MainApplication.GUI.SideMenu.registerClickEvent = function (domElement, handlerF
  */
 MainApplication.GUI.SideMenu.menuItemClickHandler = function (event) {
   event.preventDefault();
-  MainApplication.GUI.ContentPanel.switchContentArea(event.currentTarget.targetContentPanel);
+  MainApplication.GUI.Controller.switchContent(event.currentTarget.targetManagerID);
+
   console.log(`[${MainApplication.GUI.SideMenu.name}] Click over element ${event.currentTarget.id}`);
 };
