@@ -1,0 +1,9 @@
+[
+    {"name":"Assist","type":"Compound","level":1,"skillMembers":["Item Speed","Item Effect","Item Effect Dur.","Rec. Item Speed"]},
+    {"name":"HP","type":"Incremental","level":1,"skillMembers":[]},
+    {"name":"Item Speed","type":"Single","level":1,"skillMembers":[]},
+    {"name":"Step Master","type":"Incremental","level":1,"skillMembers":[]},
+    {"name":"[B] Melee Atk HP Abs","type":"Single","level":1,"skillMembers":[]},
+    {"name":"Guard Speed","type":"Single","level":1,"skillMembers":[]},
+    {"name":"Body of Steel","type":"Compound","level":1,"skillMembers":["Venom Res","Leak Res","Jamming Res","Stun Res"]}
+]
