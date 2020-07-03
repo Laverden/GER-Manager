@@ -7,8 +7,9 @@ MainApplication.GUI.SkillsManager.init = function () {
   this.skillsListElement = document.getElementById('ul-skills');
   this.skillsInfoTitle = document.getElementById('skills-information-title');
   this.skillsInfoType = document.getElementById('skills-information-type');
-  this.skillsInfoDescription = document.getElementById('skills-information-description');
-  this.skillsInfoComposition = document.getElementById('skills-information-composed');
+  this.skillsInfoDescription = document.getElementById('skills-information-text');
+  this.skillsInfoComposition = document.getElementById('skills-information-compound');
+  this.skillsInfoCompoundListElement = document.getElementById('ul-skills-children');
 
   this.populateListFromFile();
 
@@ -16,9 +17,10 @@ MainApplication.GUI.SkillsManager.init = function () {
 };
 
 MainApplication.GUI.SkillsManager.populateListFromFile = function () {
-  const debugSkillArray = ['HP', 'ATTACK', 'GUN ATTACK', 'MELEE ATTACK', 'DEFENSE'];
+  const debugSkillArray = MainApplication.Data.skillsDatabase;
 
-  debugSkillArray.forEach(skillName => {
+  debugSkillArray.forEach(skillObject => {
+    var skillName = skillObject.name;
     var listItem = this.createSkillItem(skillName);
     this.skillsListElement.appendChild(listItem);
   });
@@ -42,15 +44,46 @@ MainApplication.GUI.SkillsManager.showSkillInformation = function (event) {
   console.log(`[${this.name}] Click on ${event.currentTarget.skillId}`);
   event.preventDefault();
 
-  const debugCompoundSkill = false;
+  const targetSkillName = event.currentTarget.skillId;
 
-  this.skillsInfoTitle.innerText = event.currentTarget.skillId;
-  this.skillsInfoType.innerText = 'Composed';
+  const targetSkillObject = MainApplication.Data.getSkillFromDatabase(targetSkillName);
 
-  if (debugCompoundSkill) {
-    this.skillsInfoComposition.setAttribute('display_', 'true');
+  const isCompound = (targetSkillObject.type === 'Compound');
+
+  this.skillsInfoTitle.innerText = targetSkillObject.name;
+  this.skillsInfoType.innerText = targetSkillObject.type;
+
+  if (isCompound) {
+    this.populateChildSkills(targetSkillObject);
+    this.skillsInfoDescription.innerText = '';
   } else {
-    this.skillsInfoDescription.innerText = 'Bla bla bla bla bla %% bla bla bla';
+    this.deleteAllListItems(this.skillsInfoCompoundListElement);
+    this.skillsInfoDescription.innerText = 'Here is a description of the skill that increase your skill by 5% per level.';
+  }
+
+  this.skillsInfoComposition.setAttribute('display_', isCompound.toString());
+  this.skillsInfoDescription.setAttribute('display_', (!isCompound).toString());
+};
+
+MainApplication.GUI.SkillsManager.populateChildSkills = function (skillObject) {
+  const childSkillsList = skillObject.skillMembers;
+  this.deleteAllListItems(this.skillsInfoCompoundListElement);
+
+  childSkillsList.forEach(childId => {
+    var childItem = document.createElement('li');
+    childItem.appendChild(document.createTextNode(childId));
+    this.skillsInfoCompoundListElement.appendChild(childItem);
+  });
+};
+
+/**
+ * DESCRIBE
+ *
+ * @param {Element} ulElement
+ */
+MainApplication.GUI.SkillsManager.deleteAllListItems = function (ulElement) {
+  while (ulElement.firstChild) {
+    ulElement.removeChild(ulElement.firstChild);
   }
 };
 

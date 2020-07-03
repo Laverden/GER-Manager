@@ -6,6 +6,7 @@ var MainApplication = {};
  * Initializes the other main components of the app.
  */
 MainApplication.init = function () {
+  MainApplication.Data.init();
   MainApplication.GUI.init();
 };
 

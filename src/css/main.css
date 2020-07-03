@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: GodEaterRegular;
-  src: url(../media/fonts/GodEaterRegular.ttf);
+  src: url(../resources/fonts/GodEaterRegular.ttf);
 }
 
 html,
@@ -241,8 +241,59 @@ body {
   font-weight: bold;
 }
 
+#skills-information-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: fantasy;
+  height: 10%;
+  background-color: blueviolet;
+}
+
 #skills-information-description {
   width: 100%;
-  height: 60%;
+  height: 70%;
   background-color: violet;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  font-family: fantasy;
+  font-size: 18px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#skills-information-text { 
+  text-align: center;
+  width: 100%;
+}
+#skills-information-text[display_="true"] { display: block; }
+#skills-information-text[display_="false"] { display: none; }
+
+#skills-information-compound { 
+  text-align: center;
+  width: 100%;
+}
+#skills-information-compound[display_="true"] { display: block; }
+#skills-information-compound[display_="false"] { display: none; }
+
+#ul-skills-children {
+  margin: 0;
+  margin-top: 10px;
+  list-style: none;
+  text-align: center;
+  font-family: fantasy;
+  font-size: 14px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#ul-skills-children li {
+  height: 32px;
+  border: 1px dotted black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: beige;
 }
