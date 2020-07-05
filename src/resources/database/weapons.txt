@@ -1,0 +1,4 @@
+[
+    {"name":"Blade X","type":"Long Blade", "skills":["Item Speed","Item Effect","Item Effect Dur.","Rec. Item Speed"]},
+    {"name":"Fire Katana","type":"Long Blade", "skills":[]}
+]

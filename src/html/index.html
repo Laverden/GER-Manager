@@ -57,7 +57,60 @@
 
             <div id="content-sets" class="content-container" status_="active"></div>
 
-            <div id="content-weapons" class="content-container" status_="inactive"></div>
+            <!--WEAPONS-MANAGER--------------------------------------------------------->
+            <div id="content-weapons" class="content-container" status_="inactive">
+                <div class="manager-actions">
+                    <button id="weapon-all-btn" class="btn-action btn-filter">
+                        ALL
+                    </button>
+
+                    <button id="weapon-short-blade-btn" class="btn-action btn-filter">
+                        <img src="./../resources/images/long-blade.png"/>
+                    </button>
+
+                    <button id="weapon-long-blade-btn" class="btn-action btn-filter">
+                        <img src="./../resources/images/long-blade.png"/>
+                    </button>
+
+                    <button id="weapon-buster-blade-btn" class="btn-action btn-filter">
+                        <img src="./../resources/images/long-blade.png"/>
+                    </button>
+
+                    <button id="weapon-boost-hammer-btn" class="btn-action btn-filter">
+                        <img src="./../resources/images/long-blade.png"/>
+                    </button>
+
+                    <button id="weapon-charge-spear-btn" class="btn-action btn-filter">
+                        <img src="./../resources/images/long-blade.png"/>
+                    </button>
+
+                    <button id="weapon-variant-scythe-btn" class="btn-action btn-filter">
+                        <img src="./../resources/images/long-blade.png"/>
+                    </button>
+                </div>
+
+                <div class="manager-content">
+
+                    <div id="weapons-displayer-content" class="displayer-content">
+                        <ul id="ul-weapons" class="displayer-list"></ul>
+                    </div>
+
+                    <div id="weapons-information-content" class="information-content">
+                        <div id="weapons-information-title" class="information-title">
+                            <span id="weapons-information-title-text" class="information-title-text"></span>
+                        </div>
+
+                        <div id="weapons-information-description" class="information-description">
+                            <div id="weapons-information-compound" class="information-list-container">
+                                SKILLS
+                                <ul id="ul-weapons-skills" class="information-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
 
             <div id="content-guns" class="content-container" status_="inactive"></div>
 
@@ -74,21 +127,26 @@
 
                 <div class="manager-content">
 
-                    <div id="skills-displayer-content">
-                        <ul id="ul-skills"></ul>
+                    <div id="skills-displayer-content" class="displayer-content">
+                        <ul id="ul-skills" class="displayer-list"></ul>
                     </div>
 
-                    <div id="skills-information-content">
-                        <div id="skills-information-title"></div>
+                    <div id="skills-information-content" class="information-content">
+                        <div id="skills-information-title" class="information-title">
+                            <span id="skills-information-title-text" class="information-title-text"></span>
+                        </div>
+
                         <div id="skills-information-type"></div>
-                        <div id="skills-information-description">
+
+                        <div id="skills-information-description" class="information-description">
                             <div id="skills-information-text" display_="false"></div>
-                            <div id="skills-information-compound" display_="false">
+                            <div id="skills-information-compound" class="information-list-container" display_="false">
                                 MEMBER SKILLS
-                                <ul id="ul-skills-children"></ul>
+                                <ul id="ul-skills-children" class="information-list"></ul>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
@@ -108,6 +166,7 @@
     <script type="text/javascript" src="../js/gui/content-panel.js"></script>
     <script type="text/javascript" src="../js/gui/hearder-title.js"></script>
     <script type="text/javascript" src="../js/gui/skills-manager.js"></script>
+    <script type="text/javascript" src="../js/gui/weapons-manager.js"></script>
 
 </body>
 </html>

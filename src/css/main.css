@@ -174,6 +174,17 @@ body {
   cursor: pointer;
 }
 
+.btn-filter {
+  font-family: GodEaterRegular;
+  font-size: 12px;
+  text-align: center;
+}
+
+.btn-filter img {
+  width: 100%;
+  height: 100%;
+}
+
 .manager-content {
   display: flex;
   flex-direction: row;
@@ -183,6 +194,16 @@ body {
   opacity: 0.7;
 }
 
+.displayer-content {
+  width: 65%;
+  height: calc(0.8*(var(--content-height)));
+  border-right: 2px double black;
+  overflow-y: auto;
+  background-color: lightblue;
+  display: block;
+  box-sizing: border-box;
+}
+/*
 #skills-displayer-content {
   width: 65%;
   height: calc(0.8*(var(--content-height)));
@@ -192,7 +213,35 @@ body {
   display: block;
   box-sizing: border-box;
 }
+*/
 
+.displayer-list {
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  font-family: fantasy;
+  font-size: 14px;
+  padding: 0;
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+.displayer-list li {
+  height: 32px;
+  border: 1px dotted black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  float: left;
+  width: 45%;
+  background-color: beige;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.displayer-list li:hover { opacity: 1; }
+/*
 #ul-skills {
   margin: 0;
   list-style: none;
@@ -219,8 +268,9 @@ body {
 }
 
 #ul-skills li:hover { opacity: 1; }
+*/
 
-#skills-information-content {
+.information-content {
   width: calc(35% - 2px);
   height: 100%;
   display: flex;
@@ -228,7 +278,7 @@ body {
   justify-content: space-evenly;
 }
 
-#skills-information-title {
+.information-title {
   width: 100%;
   height: 30%;
   background-color: red;
@@ -238,7 +288,11 @@ body {
   font-family: GodEaterRegular;
   font-size: 20px;
   color: aliceblue;
-  font-weight: bold;
+}
+
+.information-title-text { 
+  text-align: center;
+  padding: 2px;
 }
 
 #skills-information-type {
@@ -251,7 +305,7 @@ body {
   background-color: blueviolet;
 }
 
-#skills-information-description {
+.information-description {
   width: 100%;
   height: 70%;
   background-color: violet;
@@ -271,25 +325,25 @@ body {
 #skills-information-text[display_="true"] { display: block; }
 #skills-information-text[display_="false"] { display: none; }
 
-#skills-information-compound { 
+.information-list-container { 
   text-align: center;
   width: 100%;
 }
 #skills-information-compound[display_="true"] { display: block; }
 #skills-information-compound[display_="false"] { display: none; }
 
-#ul-skills-children {
+.information-list {
   margin: 0;
   margin-top: 10px;
   list-style: none;
   text-align: center;
   font-family: fantasy;
-  font-size: 14px;
+  font-size: 13px;
   padding: 0;
   box-sizing: border-box;
 }
 
-#ul-skills-children li {
+.information-list li {
   height: 32px;
   border: 1px dotted black;
   display: flex;
