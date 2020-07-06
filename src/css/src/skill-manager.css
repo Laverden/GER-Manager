@@ -1,0 +1,52 @@
+#skill-information-description { 
+  text-align: center;
+  width: 100%;
+}
+#skill-information-description[display_="true"] { display: block; }
+#skill-information-description[display_="false"] { display: none; }
+
+
+#skill-information-compound-description[display_="true"] { display: block; }
+#skill-information-compound-description[display_="false"] { display: none; }
+
+
+/*
+#skill-displayer {
+  width: 65%;
+  height: calc(0.8*(var(--content-height)));
+  border-right: 2px double black;
+  overflow-y: auto;
+  background-color: lightblue;
+  display: block;
+  box-sizing: border-box;
+}
+*/
+
+/*
+#skill-ul {
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  font-family: fantasy;
+  font-size: 14px;
+  padding: 0;
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+#skill-ul li {
+  height: 32px;
+  border: 1px dotted black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  float: left;
+  width: 45%;
+  background-color: beige;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#skill-ul li:hover { opacity: 1; }
+*/

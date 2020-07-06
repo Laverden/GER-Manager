@@ -1,3 +1,11 @@
+/*-----------------------------------------------------------------------[MAIN-PANEL]--*/
+#side-menu {
+  background-color: lightcoral;
+  display: flex;
+  flex-direction: column;
+}
+
+/*------------------------------------------------------------------[GENERAL-CLASSES]--*/
 .menu-element {
   background-color: lightgoldenrodyellow;
   border-bottom: 1px solid black;
@@ -29,4 +37,5 @@
 
 .menu-element span { margin-top: 5px; }
 
+/*-----------------------------------------------------------------[SPECIFIC STYLING]--*/
 #menu-about-manager { border-bottom: 1.5px solid black; }
