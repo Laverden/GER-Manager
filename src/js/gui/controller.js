@@ -13,27 +13,27 @@ MainApplication.GUI.Controller.init = function () {
     },
     weaponsManager: {
       menuID: 'menu-weapons',
-      contentID: 'content-weapons',
+      contentID: 'weapon-manager',
       title: 'WEAPONS MANAGER'
     },
     gunsManager: {
       menuID: 'menu-guns',
-      contentID: 'content-guns',
+      contentID: 'gun-manager',
       title: 'GUNS MANAGER'
     },
     shieldsManager: {
       menuID: 'menu-shields',
-      contentID: 'content-shields',
+      contentID: 'shield-manager',
       title: 'SHIELDS MANAGER'
     },
     skillsManager: {
       menuID: 'menu-skills',
-      contentID: 'content-skills',
+      contentID: 'skill-manager',
       title: 'SKILLS MANAGER'
     },
     aboutManager: {
       menuID: 'menu-about',
-      contentID: 'content-about',
+      contentID: 'about-manager',
       title: 'ABOUT'
     }
   };

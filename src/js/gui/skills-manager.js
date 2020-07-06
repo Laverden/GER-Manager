@@ -4,12 +4,12 @@ MainApplication.GUI.SkillsManager = {};
 
 MainApplication.GUI.SkillsManager.init = function () {
   this.name = 'GUI.SkillsManager';
-  this.skillsListElement = document.getElementById('ul-skills');
-  this.skillsInfoTitle = document.getElementById('skills-information-title-text');
-  this.skillsInfoType = document.getElementById('skills-information-type');
-  this.skillsInfoDescription = document.getElementById('skills-information-text');
-  this.skillsInfoComposition = document.getElementById('skills-information-compound');
-  this.skillsInfoCompoundListElement = document.getElementById('ul-skills-children');
+  this.skillsListElement = document.getElementById('skill-ul');
+  this.skillsInfoTitle = document.getElementById('skill-information-name');
+  this.skillsInfoType = document.getElementById('skill-information-type');
+  this.skillsInfoDescription = document.getElementById('skill-information-description');
+  this.skillsInfoComposition = document.getElementById('skill-information-compound-description');
+  this.skillsInfoCompoundListElement = document.getElementById('skill-components-ul');
 
   this.populateListFromFile();
 

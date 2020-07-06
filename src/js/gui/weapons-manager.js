@@ -4,10 +4,10 @@ MainApplication.GUI.WeaponManager = {};
 
 MainApplication.GUI.WeaponManager.init = function () {
   this.name = 'GUI.WeaponManager';
-  this.weaponsListElement = document.getElementById('ul-weapons');
-  this.weaponsInfoTitle = document.getElementById('weapons-information-title-text');
+  this.weaponsListElement = document.getElementById('weapon-ul');
+  this.weaponsInfoTitle = document.getElementById('weapon-information-name');
   // this.weaponsInfoType = document.getElementById('weapons-information-type');
-  this.weaponsSkillsListElement = document.getElementById('ul-weapons-skills');
+  this.weaponsSkillsListElement = document.getElementById('weapon-skills-ul');
 
   this.populateListFromFile();
   console.log(`[${this.name}] Module ${this.name} has been initialized.`);

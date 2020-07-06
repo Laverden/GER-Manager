@@ -72,7 +72,7 @@ body {
   flex-direction: column;
 }
 
-#content-panel {
+#manager-panel {
   background-color: darkgray;
   grid-area: content;
 }
@@ -116,19 +116,19 @@ body {
 
 .menu-element span { margin-top: 5px; }
 
-#menu-content-about { border-bottom: 1.5px solid black; }
+#menu-about-manager { border-bottom: 1.5px solid black; }
 
 /*---------------------------------------------------------------------[CONTENT-AREA]--*/
-.content-container {
+.manager-container {
   height: 100%;
   width: 100%;
 }
 
-.content-container[status_="active"] {
+.manager-container[status_="active"] {
   display: block;
 }
 
-.content-container[status_="inactive"] {
+.manager-container[status_="inactive"] {
   display: none;
 }
 
@@ -136,23 +136,23 @@ body {
   background-color: darkslateblue;
 }
 
-#content-weapons {
+#weapon-manager {
   background-color: darkturquoise;
 }
 
-#content-guns {
+#gun-manager {
   background-color: darkseagreen;
 }
 
-#content-shields {
+#shield-manager {
   background-color: darkorchid
 }
 
-#content-skills {
+#skill-manager {
   background-color: darksalmon;
 }
 
-.manager-actions {
+.manager-filters {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -204,7 +204,7 @@ body {
   box-sizing: border-box;
 }
 /*
-#skills-displayer-content {
+#skill-displayer {
   width: 65%;
   height: calc(0.8*(var(--content-height)));
   border-right: 2px double black;
@@ -242,7 +242,7 @@ body {
 
 .displayer-list li:hover { opacity: 1; }
 /*
-#ul-skills {
+#skill-ul {
   margin: 0;
   list-style: none;
   text-align: center;
@@ -253,7 +253,7 @@ body {
   margin-left: 10px;
 }
 
-#ul-skills li {
+#skill-ul li {
   height: 32px;
   border: 1px dotted black;
   display: flex;
@@ -267,7 +267,7 @@ body {
   cursor: pointer;
 }
 
-#ul-skills li:hover { opacity: 1; }
+#skill-ul li:hover { opacity: 1; }
 */
 
 .information-content {
@@ -278,7 +278,7 @@ body {
   justify-content: space-evenly;
 }
 
-.information-title {
+.information-header {
   width: 100%;
   height: 30%;
   background-color: red;
@@ -290,12 +290,12 @@ body {
   color: aliceblue;
 }
 
-.information-title-text { 
+.information-header > span { 
   text-align: center;
   padding: 2px;
 }
 
-#skills-information-type {
+#skill-information-type {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -305,7 +305,7 @@ body {
   background-color: blueviolet;
 }
 
-.information-description {
+.information-body {
   width: 100%;
   height: 70%;
   background-color: violet;
@@ -318,19 +318,19 @@ body {
   box-sizing: border-box;
 }
 
-#skills-information-text { 
+#skill-information-description { 
   text-align: center;
   width: 100%;
 }
-#skills-information-text[display_="true"] { display: block; }
-#skills-information-text[display_="false"] { display: none; }
+#skill-information-description[display_="true"] { display: block; }
+#skill-information-description[display_="false"] { display: none; }
 
 .information-list-container { 
   text-align: center;
   width: 100%;
 }
-#skills-information-compound[display_="true"] { display: block; }
-#skills-information-compound[display_="false"] { display: none; }
+#skill-information-compound-description[display_="true"] { display: block; }
+#skill-information-compound-description[display_="false"] { display: none; }
 
 .information-list {
   margin: 0;
