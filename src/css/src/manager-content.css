@@ -79,7 +79,9 @@
 
 .displayer-list li {
   height: 32px;
-  border: 1px dotted black;
+  border: 2px;
+  border-style: groove;
+  border-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,7 +121,7 @@
   padding: 2px;
 }
 
-#skill-information-type {
+.information-type {
   display: flex;
   flex-direction: row;
   justify-content: center;

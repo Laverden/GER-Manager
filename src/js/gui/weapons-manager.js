@@ -6,7 +6,7 @@ MainApplication.GUI.WeaponManager.init = function () {
   this.name = 'GUI.WeaponManager';
   this.weaponsListElement = document.getElementById('weapon-ul');
   this.weaponsInfoTitle = document.getElementById('weapon-information-name');
-  // this.weaponsInfoType = document.getElementById('weapons-information-type');
+  this.weaponsInfoType = document.getElementById('weapon-information-type');
   this.weaponsSkillsListElement = document.getElementById('weapon-skills-ul');
 
   this.populateListFromFile();
@@ -16,11 +16,21 @@ MainApplication.GUI.WeaponManager.init = function () {
 MainApplication.GUI.WeaponManager.populateListFromFile = function () {
   const weaponsArray = MainApplication.Data.weaponsDatabase;
 
+  this.createAddEntry();
+
   weaponsArray.forEach(weaponObject => {
     var weaponName = weaponObject.name;
     var listItem = this.createWeaponItem(weaponName);
     this.weaponsListElement.appendChild(listItem);
   });
+};
+
+MainApplication.GUI.WeaponManager.createAddEntry = function () {
+  var listItem = document.createElement('li');
+  listItem.appendChild(document.createTextNode('New Weapon'));
+  listItem.id = 'weapon-add-btn';
+  listItem.addEventListener('click', this.addWeapon.bind(this));
+  this.weaponsListElement.appendChild(listItem);
 };
 
 MainApplication.GUI.WeaponManager.createWeaponItem = function (weaponName) {
@@ -46,7 +56,7 @@ MainApplication.GUI.WeaponManager.showWeaponInformation = function (event) {
   const targetWeaponObject = MainApplication.Data.getWeaponFromDatabase(targetWeaponName);
 
   this.weaponsInfoTitle.innerText = targetWeaponObject.name;
-  // this.weaponsInfoType.innerText = targetWeaponObject.type;
+  this.weaponsInfoType.innerText = targetWeaponObject.type;
 
   this.populateWeaponSkills(targetWeaponObject);
 };
@@ -79,7 +89,6 @@ MainApplication.GUI.WeaponManager.deleteAllListItems = function (ulElement) {
   }
 };
 
-MainApplication.GUI.WeaponManager.addSkill = function (skillName) {
-  var newSkillItem = this.createSkillItem(skillName);
-  this.skillsListElement.appendChild(newSkillItem);
+MainApplication.GUI.WeaponManager.addWeapon = function () {
+  console.log('Adding weapon');
 };

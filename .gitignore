@@ -1,5 +1,8 @@
 # Dependency directories
 node_modules/
 
-#Packaging files
+# Packaging files
 package-lock.json
+
+# Minified files
+src/css/min/*.css
