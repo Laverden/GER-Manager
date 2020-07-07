@@ -66,7 +66,7 @@ MainApplication.GUI.SkillsManager.showSkillInformation = function (event) {
 };
 
 MainApplication.GUI.SkillsManager.populateChildSkills = function (skillObject) {
-  const childSkillsList = skillObject.skillMembers;
+  const childSkillsList = skillObject.info;
   this.deleteAllListItems(this.skillsInfoCompoundListElement);
 
   childSkillsList.forEach(childId => {

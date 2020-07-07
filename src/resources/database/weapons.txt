@@ -1,4 +1,32 @@
 [
-    {"name":"Blade X","type":"Long Blade", "skills":["Item Speed","Item Effect","Item Effect Dur.","Rec. Item Speed"]},
-    {"name":"Fire Katana","type":"Long Blade", "skills":[]}
+    {
+        "name": "Blade X",
+        "type": "Short Blade", 
+        "skills": [
+            {"name": "Item Speed", "type": "Additive", "level": "10"},
+            {"name": "Item Effect", "type": "Single", "level": "4"},
+            {"name": "Item Effect Dur.", "type": "Additive", "level": "7"},
+            {"name": "Rec. Item Speed", "type": "Single", "level": "1"}
+            ]
+     },
+    {
+        "name": "Fire Katana",
+        "type": "Long Blade", 
+        "skills": [
+            {"name": "Item Speed", "type": "Additive", "level": "10"},
+            {"name": "Item Effect Dur.", "type": "Additive", "level": "2"}
+        ]
+    },
+    {
+        "name": "Frost Bite",
+        "type": "Long Blade", 
+        "skills": [
+            {"name": "Active", "type": "Compound", "level": "IV", "skills": [{"name": "Devour Bullet Power", "type": "Single", "level": "5"}, 
+                                                                             {"name": "[B] Devour Bullet Qty", "type": "Single", "level": "5"}, 
+                                                                             {"name": "Devour Oracle Absorb", "type": "Single", "level": "5"}, 
+                                                                             {"name": "Item Speed", "type": "Additive", "level": "5"}] },
+            {"name": "Item Effect Dur.", "type": "Single", "level": "2"},
+            {"name": "Item Speed", "type": "Additive", "level": "10"}
+        ]
+    }
 ]

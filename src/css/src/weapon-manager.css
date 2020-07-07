@@ -1,4 +1,32 @@
-#weapon-add-btn {
-    background-color: green;
-    border-style: dashed;
+:root {
+  --weapon-level-width: 30px;
 }
+
+#weapon-add-btn {
+  background-color: green;
+  border-style: dashed;
+}
+
+.weapon-skill-name {
+  width: calc(100% - var(--weapon-level-width));
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.weapon-skill-level {
+  width: var(--weapon-level-width);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px dotted black;
+  box-sizing: border-box;
+}
+
+.information-list li[skill_="1"] { background-color: cadetblue; }
+.information-list li[skill_="2"] { background-color: yellowgreen; }
+.information-list li[skill_="3"] { background-color: orange; }
+.information-list li[skill_="4"] { background-color: plum; }

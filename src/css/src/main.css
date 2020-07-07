@@ -5,11 +5,32 @@
   --header-height: 80px;
   --actions-height: 10%;
   --content-height: calc(var(--win-height) - var(--header-height));
+  --default-font: AmericanCaptainRegular;
 }
 
 @font-face {
   font-family: GodEaterRegular;
   src: url(../../resources/fonts/GodEaterRegular.ttf);
+}
+
+@font-face {
+  font-family: FallIsComingRegular;
+  src: url(../../resources/fonts/FallIsComingRegular.ttf);
+}
+
+@font-face {
+  font-family: DeliriumNcvRegular;
+  src: url(../../resources/fonts/DeliriumNcvRegular.ttf);
+}
+
+@font-face {
+  font-family: AmericanCaptainRegular;
+  src: url(../../resources/fonts/AmericanCaptainRegular.otf);
+}
+
+@font-face {
+  font-family: PapaBearRegular;
+  src: url(../../resources/fonts/PapaBearRegular.ttf);
 }
 
 html,

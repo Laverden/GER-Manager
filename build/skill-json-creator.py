@@ -3,7 +3,7 @@
 import sys
 
 LEVEL = 1
-ENTRY = "{{\"name\": \"{}\", \"type\": \"{}\", \"level\": {}, \"skillMembers\": [{}]}},"
+ENTRY = "{{\"name\": \"{}\", \"type\": \"{}\", \"level\": {}, \"info\": [{}]}},"
 MEMBER_ENTRY = "\"{}\", \"{}\", \"{}\", \"{}\""
 
 if __name__ == "__main__":

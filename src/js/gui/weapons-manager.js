@@ -70,10 +70,56 @@ MainApplication.GUI.WeaponManager.populateWeaponSkills = function (weaponObject)
   const weaponSkillsList = weaponObject.skills;
 
   this.deleteAllListItems(this.weaponsSkillsListElement);
+  var skillCounter = 1;
 
-  weaponSkillsList.forEach(skillName => {
+  weaponSkillsList.forEach(skillObject => {
     var skillItem = document.createElement('li');
-    skillItem.appendChild(document.createTextNode(skillName));
+    var skillNameDiv = document.createElement('div');
+    var skillLevelDiv = document.createElement('div');
+    var skillNumber = `${skillCounter}`;
+
+    skillNameDiv.classList.add('weapon-skill-name');
+    skillNameDiv.innerHTML = skillObject.name;
+    skillLevelDiv.classList.add('weapon-skill-level');
+    skillLevelDiv.innerHTML = skillObject.level;
+
+    skillItem.appendChild(skillNameDiv);
+    skillItem.appendChild(skillLevelDiv);
+    skillItem.setAttribute('skill_', skillNumber);
+    // skillItem.classList.add(skillClass);
+
+    // skillItem.appendChild(document.createTextNode(skillName));
+    this.weaponsSkillsListElement.appendChild(skillItem);
+    skillCounter += 1;
+
+    if (skillObject.type === 'Compound') {
+      this.extendWeaponCompundSkill(skillObject, skillNumber);
+    }
+  });
+};
+
+/**
+ * 
+ * @param {Skill} skillObject 
+ * @param {string} skillItemID 
+ */
+MainApplication.GUI.WeaponManager.extendWeaponCompundSkill = function (skillObject, skillNumber) {
+  const compoundSkillChildren = skillObject.skills;
+
+  compoundSkillChildren.forEach(childSkillObject => {
+    var skillItem = document.createElement('li');
+    var skillNameDiv = document.createElement('div');
+    var skillLevelDiv = document.createElement('div');
+
+    skillNameDiv.classList.add('weapon-skill-name');
+    skillNameDiv.innerHTML = childSkillObject.name;
+    skillLevelDiv.classList.add('weapon-skill-level');
+    skillLevelDiv.innerHTML = childSkillObject.level;
+
+    skillItem.appendChild(skillNameDiv);
+    skillItem.appendChild(skillLevelDiv);
+    skillItem.setAttribute('skill_', skillNumber);
+
     this.weaponsSkillsListElement.appendChild(skillItem);
   });
 };

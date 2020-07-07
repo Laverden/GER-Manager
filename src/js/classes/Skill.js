@@ -1,36 +1,24 @@
 'use strict';
 
+/**
+ * Class to represent Skill information.
+ */
 export default class Skill {
   /**
-   * DESCRIBE
-   *
-   * @param {*} name
-   * @param {*} type Whether the skill is Single, Compound or Incremental
+   * Skill Class constructor.
+   * @param {Object} fromObj Use to construct the Skill Object from a generic one.
+   * @param {String} name Skill name or ID.
+   * @param {String} type Whether the skill is Single, Compound or Incremental
    */
-  constructor (object = null, name, type) {
-    if (object) {
-      this.name = object.name;
-      this.type = object.type;
-      this.skillMembers = object.skillMembers;
+  constructor (fromObj = null, name, type) {
+    if (fromObj) {
+      this.name = fromObj.name;
+      this.type = fromObj.type;
+      this.info = fromObj.info;
     } else {
       this.name = name;
       this.type = type;
-      this.skillMembers = [];
+      (type === 'Compound') ? this.info = [] : this.info = 'Skill description';
     }
-    this.level = 1;
-  }
-
-  setLevel (level) {
-    if (level >= 1 && level <= 10) {
-      this.level = level;
-    } else {
-      throw Error('Level must be a number between 1 and 10');
-    }
-  }
-
-  setSkillMembers (memberList) {
-    memberList.forEach(element => {
-      this.skillMembers.push(element);
-    });
   }
 }
