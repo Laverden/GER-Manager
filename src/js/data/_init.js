@@ -8,7 +8,8 @@ const path = require('path');
 
 const CURRENT_DIR = process.cwd();
 const databasesDir = path.join(CURRENT_DIR, 'src/resources/database');
-const SKILLS_FILE = path.join(databasesDir, 'skills-compound.txt');
+const SKILLS_FILE = path.join(databasesDir, 'skills.txt');
+const SKILLS_COMPOUND_FILE = path.join(databasesDir, 'skills-compound.txt');
 const WEAPONS_FILE = path.join(databasesDir, 'weapons.txt');
 
 MainApplication.Data = {};
@@ -44,6 +45,8 @@ MainApplication.Data.loadData = function (target) {
   switch (target) {
     case 'skills':
       rawData = this.readFromFile(SKILLS_FILE);
+      this.parseSkillDataToObject(rawData);
+      rawData = this.readFromFile(SKILLS_COMPOUND_FILE);
       this.parseSkillDataToObject(rawData);
       break;
     case 'weapons':
@@ -100,6 +103,19 @@ MainApplication.Data.getWeaponFromDatabase = function (weaponName) {
 
   return fetchedWeapon;
 };
+
+MainApplication.Data.getSkillType = function (skillName) {
+  var fetchedSkillType = null;
+
+  for (const element of this.skillsDatabase) {
+    if (element.name === skillName) {
+      fetchedSkillType = element.type;
+      break;
+    }
+  }
+
+  return fetchedSkillType;
+}
 
 /**
  * DESCRIBE

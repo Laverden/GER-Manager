@@ -1,9 +1,8 @@
 [
-    {"name":"Assist","type":"Compound","level":1,"info":["Item Speed","Item Effect","Item Effect Dur.","Rec. Item Speed"]},
     {"name":"HP","type":"Incremental","level":1,"info":[]},
     {"name":"Item Speed","type":"Single","level":1,"info":[]},
     {"name":"Step Master","type":"Incremental","level":1,"info":[]},
     {"name":"[B] Melee Atk HP Abs","type":"Single","level":1,"info":[]},
     {"name":"Guard Speed","type":"Single","level":1,"info":[]},
-    {"name":"Body of Steel","type":"Compound","level":1,"info":["Venom Res","Leak Res","Jamming Res","Stun Res"]}
+    {"name":"Devour Bullet Power","type":"Single","level":1,"info":[]}
 ]

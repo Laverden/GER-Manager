@@ -161,6 +161,9 @@
   box-sizing: border-box;
 }
 
+.information-list[state_="show"] { display: block; }
+.information-list[state_="hide"] { display: none; }
+
 .information-list li {
   height: 32px;
   border: 1px dotted black;

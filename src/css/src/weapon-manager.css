@@ -30,3 +30,36 @@
 .information-list li[skill_="2"] { background-color: yellowgreen; }
 .information-list li[skill_="3"] { background-color: orange; }
 .information-list li[skill_="4"] { background-color: plum; }
+
+.weapon-skill-level[status_='inactive'] { color: yellow; }
+.weapon-skill-level[status_='overflow'] { color: red; }
+
+#weapon-skills-toggle-btn {
+  float: right;
+  width: 24px;
+  height: 24px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 1px 1px black;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+  position: absolute;
+  right: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#weapon-skills-toggle-btn[mode_="skill"] { background-color: powderblue; }
+#weapon-skills-toggle-btn[mode_="summary"] { background-color: rebeccapurple; }
+
+#weapon-skills-toggle-btn:focus { outline: none; }
+
+#weapon-skills-toggle-btn > img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
