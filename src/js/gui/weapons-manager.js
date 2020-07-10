@@ -23,10 +23,36 @@ MainApplication.GUI.WeaponManager.init = function () {
   this.weaponSkillsToggleButton = document.getElementById('weapon-skills-toggle-btn');
 
   this.weaponSkillsToggleButton.addEventListener('click', this.toggleWeaponSkillView.bind(this));
+
   this.populateListFromFile();
+  this.initWeaponSkillList();
+
   console.log(`[${this.name}] Module ${this.name} has been initialized.`);
 };
 
+MainApplication.GUI.WeaponManager.initWeaponSkillList = function () {
+  console.log("Init the skill list");
+  for (let i = 0; i < 4; i++) {
+    console.log(`Item ${i}`);
+    var listItem = document.createElement('li');
+    var skillNameDiv = document.createElement('div');
+    var skillLevelDiv = document.createElement('div');
+
+    skillNameDiv.classList.add('weapon-skill-name');
+    skillLevelDiv.classList.add('weapon-skill-level');
+
+    listItem.appendChild(skillNameDiv);
+    listItem.appendChild(skillLevelDiv);
+    listItem.setAttribute('skill_', (i + 1).toString());
+
+    this.weaponSkillsUnorderedList.appendChild(listItem);
+
+    var listItemCopy = listItem.cloneNode(true);
+
+    listItemCopy.removeAttribute('skill_');
+    this.weaponSkillsSummaryList.appendChild(listItemCopy);
+  }
+}
 /**
  * Creates and adds the Weapons list items from the internal database.
  */
