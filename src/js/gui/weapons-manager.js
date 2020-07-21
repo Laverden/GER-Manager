@@ -3,25 +3,34 @@
 MainApplication.GUI.WeaponManager = {};
 
 MainApplication.GUI.WeaponManager.name = 'GUI.WeaponManager';
+
 MainApplication.GUI.WeaponManager.weaponUnorderedList = undefined;
+
 MainApplication.GUI.WeaponManager.weaponInfoName = undefined;
 MainApplication.GUI.WeaponManager.weaponInfoType = undefined;
 MainApplication.GUI.WeaponManager.weaponSkillsUnorderedList = undefined;
 MainApplication.GUI.WeaponManager.weaponSkillsSummaryList = undefined;
 MainApplication.GUI.WeaponManager.weaponSkillsToggleButton = undefined;
 
+MainApplication.GUI.WeaponManager.weaponLongBladeFilterButton = undefined;
+
 /**
  * Initializes some of the GUI.WeaponsManager properties.
  */
 MainApplication.GUI.WeaponManager.init = function () {
   this.weaponUnorderedList = document.getElementById('weapon-ul');
+
   this.weaponInfoName = document.getElementById('weapon-information-name');
   this.weaponInfoType = document.getElementById('weapon-information-type');
   this.weaponSkillsUnorderedList = document.getElementById('weapon-skills-ul');
   this.weaponSkillsSummaryList = document.getElementById('weapon-skills-summary-ul');
 
+  this.weaoponAllFilterButton = document.getElementById('weapon-all-btn');
+  this.weaponLongBladeFilterButton = document.getElementById('weapon-long-blade-btn');
   this.weaponSkillsToggleButton = document.getElementById('weapon-skills-toggle-btn');
 
+  this.weaoponAllFilterButton.addEventListener('click', this.applyWeaponFilter.bind(this));
+  this.weaponLongBladeFilterButton.addEventListener('click', this.applyWeaponFilter.bind(this));
   this.weaponSkillsToggleButton.addEventListener('click', this.toggleWeaponSkillView.bind(this));
 
   this.populateListFromFile();
@@ -31,7 +40,6 @@ MainApplication.GUI.WeaponManager.init = function () {
 };
 
 MainApplication.GUI.WeaponManager.initWeaponSkillList = function () {
-  console.log("Init the skill list");
   for (let i = 0; i < 4; i++) {
     console.log(`Item ${i}`);
     var listItem = document.createElement('li');
@@ -52,7 +60,8 @@ MainApplication.GUI.WeaponManager.initWeaponSkillList = function () {
     listItemCopy.removeAttribute('skill_');
     this.weaponSkillsSummaryList.appendChild(listItemCopy);
   }
-}
+};
+
 /**
  * Creates and adds the Weapons list items from the internal database.
  */
@@ -63,7 +72,8 @@ MainApplication.GUI.WeaponManager.populateListFromFile = function () {
 
   weaponsArray.forEach(weaponObject => {
     var weaponName = weaponObject.name;
-    var listItem = this.createWeaponItem(weaponName);
+    var weaponType = weaponObject.type;
+    var listItem = this.createWeaponItem(weaponName, weaponType);
     this.weaponUnorderedList.appendChild(listItem);
   });
 };
@@ -75,6 +85,7 @@ MainApplication.GUI.WeaponManager.createAddEntry = function () {
   var listItem = document.createElement('li');
   listItem.appendChild(document.createTextNode('New Weapon'));
   listItem.id = 'weapon-add-btn';
+  listItem.setAttribute('state_', 'show');
   listItem.addEventListener('click', this.addWeapon.bind(this));
   this.weaponUnorderedList.appendChild(listItem);
 };
@@ -83,10 +94,12 @@ MainApplication.GUI.WeaponManager.createAddEntry = function () {
  * Creates a Weapon list item.
  * @param {String} weaponName The name of the Weapon object.
  */
-MainApplication.GUI.WeaponManager.createWeaponItem = function (weaponName) {
+MainApplication.GUI.WeaponManager.createWeaponItem = function (weaponName, weaponType) {
   var listItem = document.createElement('li');
   listItem.appendChild(document.createTextNode(weaponName));
   listItem.weaponName = weaponName;
+  listItem.weaponType = weaponType;
+  listItem.setAttribute('state_', 'show');
   listItem.addEventListener('click', this.showWeaponInformation.bind(this));
 
   return listItem;
@@ -255,6 +268,53 @@ MainApplication.GUI.WeaponManager.toggleWeaponSkillView = function () {
 
   this.weaponSkillsSummaryList.setAttribute('state_', summaryModeVisibilty);
   this.weaponSkillsUnorderedList.setAttribute('state_', skillModeVisibility);
+};
+
+MainApplication.GUI.WeaponManager.applyWeaponFilter = function (event) {
+  this.removeAllWeaponFilters();
+
+  const filterBtnID = event.currentTarget.id;
+  const filterGroup = event.currentTarget.getAttribute('group_');
+
+  this.setFilterActive(filterBtnID);
+
+  switch (filterGroup) {
+    case 'long-blade':
+      this.filterWeaponsByType('Long Blade');
+      break;
+    default:
+      break;
+  }
+};
+
+MainApplication.GUI.WeaponManager.setFilterActive = function (activeFilterID) {
+  const filterButtons = document.getElementsByClassName('btn-filter');
+
+  for (const fb of filterButtons) {
+    if (fb.id === activeFilterID) {
+      fb.classList.add('active');
+    } else {
+      fb.classList.remove('active');
+    }
+  }
+};
+
+MainApplication.GUI.WeaponManager.filterWeaponsByType = function (weaponType) {
+  const weaponItems = this.weaponUnorderedList.getElementsByTagName('li');
+
+  for (const w of weaponItems) {
+    if (w.weaponType) {
+      if (w.weaponType !== weaponType) { w.setAttribute('state_', 'hide'); }
+    }
+  }
+};
+
+MainApplication.GUI.WeaponManager.removeAllWeaponFilters = function () {
+  const weaponItems = this.weaponUnorderedList.getElementsByTagName('li');
+
+  for (const w of weaponItems) {
+    w.setAttribute('state_', 'show');
+  }
 };
 
 /**
