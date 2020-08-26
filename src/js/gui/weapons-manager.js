@@ -1,5 +1,7 @@
 'use strict';
 
+const { ipcRenderer } = require('electron');
+
 MainApplication.GUI.WeaponManager = {};
 
 MainApplication.GUI.WeaponManager.name = 'GUI.WeaponManager';
@@ -167,7 +169,7 @@ MainApplication.GUI.WeaponManager.populateWeaponSkills = function (weaponObject)
  * @param {string} skillNumber Compound Skill identifier grouping all the child Skills.
  */
 MainApplication.GUI.WeaponManager.extendWeaponCompundSkill = function (skillObject, skillNumber) {
-  const compoundSkillChildren = skillObject.skills;
+  const compoundSkillChildren = skillObject.info;
 
   compoundSkillChildren.forEach(childSkillObject => {
     var skillItem = document.createElement('li');
@@ -230,7 +232,7 @@ MainApplication.GUI.WeaponManager.buildWeaponSkillSummary = function (weaponSkil
     var sType = skillObject.type;
 
     if (sType === 'Compound') {
-      var sChildren = skillObject.skills;
+      var sChildren = skillObject.info;
       sChildren.forEach(s => {
         var cName = s.name;
         var cLevel = s.level;
@@ -329,4 +331,12 @@ MainApplication.GUI.WeaponManager.deleteAllListItems = function (ulElement) {
 
 MainApplication.GUI.WeaponManager.addWeapon = function () {
   console.log('Adding weapon');
+  window.open('', 'add-weapon');
+  ipcRenderer.send('update-skill-list', MainApplication.Data.skillsDatabase);
 };
+
+ipcRenderer.on('add-weapon', (event, data) => {
+  console.log('SHOWING INFO');
+  console.log(data);
+  MainApplication.Data.addNewWeapon(data);
+});

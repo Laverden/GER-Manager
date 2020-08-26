@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GER: New Weapon</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" type="text/css" href="../css/min/main.min.css">
+</head>
+
+<body>
+  <div id="main-container">
+    <form id="weapon-info-form">
+      <label for="wname">Name:</label>
+      <input type="text" id="wname" name="wname"><br>
+      <label for="wtype">Type:</label>
+      <select id="wtype" name="wtype">
+        <option value="Short Blade">Short Blade</option>
+        <option value="Long Blade">Long Blade</option>
+      </select>
+
+      <label for="skill-a">
+        Skill A:
+        <select id="skill-a">
+          <option value="None">None</option>
+        </select>
+        Level:
+        <select id="slevel-a">
+        </select>
+      </label>
+
+      <label for="skill-b">
+        Skill B:
+        <select id="skill-b">
+          <option value="None">None</option>
+        </select>
+        Level:
+        <select id="slevel-b">
+        </select>
+      </label>
+
+
+      <input type="submit" value="Add Weapon">
+    </form>
+  </div>
+
+  <script type="module">
+    import Weapon from './../js/classes/Weapon.js';
+    const { ipcRenderer } = require('electron');
+
+    function populateSkillDropdown(skillList) {
+      var selectSkillA = document.getElementById('skill-a');
+      var selectSkillB = document.getElementById('skill-b');
+      var selectSkillLevelA = document.getElementById('slevel-a');
+      var selectSkillLevelB = document.getElementById('slevel-b');
+
+      for (let s of skillList) {
+        var skillItemOpt = document.createElement('option');
+        skillItemOpt.textContent = s.name;
+        skillItemOpt.value = s.name;
+        selectSkillA.appendChild(skillItemOpt);
+        selectSkillB.appendChild(skillItemOpt.cloneNode(true));
+
+        if (s.type !== 'Compound') {
+          for (let n = 0; n < 10; n++) {
+            var levelItemOpt = document.createElement('option');
+            levelItemOpt.textContent = n + 1;
+            levelItemOpt.value = n + 1;
+            selectSkillLevelA.appendChild(levelItemOpt);
+            selectSkillB.appendChild(levelItemOpt.cloneNode(true));
+          }
+        }
+      }
+    }
+
+    function addNewWeapon(event) {
+      event.preventDefault();
+      console.log('Weapon Info');
+      const wName = document.getElementById('wname').value;
+      const wType = document.getElementById('wtype').value;
+      var wSkills = [];
+      wSkills.push(document.getElementById('skill-a-dropdown').value);
+      wSkills.push(document.getElementById('skill-b-dropdown').value);
+      
+      // const newWeapon = new Weapon(null, wName, wType);
+      // newWeapon.addSkills(wSkills);
+
+      var newWeapon = { name: wName,
+                           type: wType,
+                           skills: wSkills
+                          };
+
+      console.log(newWeapon);
+
+      ipcRenderer.send('new-weapon', newWeapon);
+    }
+
+    ipcRenderer.on('populate-skills', (event, data) => {
+      console.log('[ADD WEAPON] Updating Skill List...');
+      console.log(data);
+      populateSkillDropdown(data);
+    });
+
+    const formHTMLElement = document.getElementById('weapon-info-form');
+    formHTMLElement.addEventListener('submit', addNewWeapon);
+  </script>
+
+</body>
+</html>
